@@ -1,0 +1,31 @@
+\chapter{Variational autoencoders}
+\label{ch:vae}
+
+In recent years, the conventional autoencoder has undergone numerous advancements, with the evolution of its development process outlined in \autoref{table:vae:evolution}, as retrieved from relevant literature~\cite{li2023comprehensive}. The autoencoder is an efficient coding method that facilitates learning and extracting crucial features. Implemented as a neural network, it is designed for reconstructing its input signal, operating as an unsupervised learning model that does not require data labels.
+
+The typical structure of an autoencoder comprises two essential components:
+\begin{enumerate}
+    \item The Encoder: this part learns the significant features of the input data, reducing its dimensionality and transforming the input signal into another space for meaningful representation.
+
+    \item The Decoder: responsible for converting the transformed signal back to the original space; it restores the initial representation.
+\end{enumerate}
+
+\input{chapters/utility/results/ae}
+
+As depicted in \autoref{fig:vae:ae_schema}, a complete autoencoder (AE) includes three distinct layers: the input layer, hidden layer, and output layer. The neuron numbers in each layer are denoted as $n$, $t$, and $n$, respectively. The input and output layers share the same number of neurons, while the hidden layer's neuron count is unrestricted. When the number of neurons in the hidden layer is less than that in the input layer, it is termed a sparse or compressed structure. Typically, the neuron count in the hidden layer is less than that in the input layer ($t < n$), reducing dimensionality.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=.75\textwidth]{chapters/utility/img/ae_schema.eps}
+\caption{Classical structure of an autoencoder. $X$ is the input data of the input layer, $h$ is the hidden layer's data, and $X^d$ is the reconstructed output data in the output layer.}
+\label{fig:vae:ae_schema}
+\end{figure}
+
+\begin{lvae}
+
+Recalling \autoref{ch:vae}, the essence of a variational autoencoder is that we take a variational distribution $q_\phi$ and choose the parameters $\phi$ to fit best the proposed distribution $p(\bZ)$. We also fit the data likelihood to best reconstruct the input from the proposed latent space distribution. The loss is the variational lower bound, given by
+\begin{equation}
+\Ls(\theta,\phi;\bX,\bA)=-D_{KL}(q_\phi(\bZ|\bX,\bA), p_\theta(\bZ))+\mathbb{E}_{q_\phi}\left[\log p_\theta(\bA|\bZ)\right]
+\end{equation}
+
+\end{lvae}

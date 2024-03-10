@@ -1,0 +1,234 @@
+%%
+%% This is file `VeneziaPhdThesis.sdf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% PhdThesis.dtx  (with options: `sdf,Venezia,Phd')
+%% 
+%% Copyright (C) 1995-2004 Marco Comini <comini@dimi.uniud.it>.
+%% 
+%% This class is the Phd Thesis format of the Computer Science Deartment of
+%% the Pisa and Udine Universities -- Italy.
+%% 
+%% This class is distributed in the hope that it will be useful, but WITHOUT
+%% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE.
+%% 
+%% Direct use of code from this class in another class which is either sold
+%% for profit, or not made freely available, is explicitly forbidden by the
+%% author.
+%% 
+\typeout{Class PhdThesis: VeneziaPhdThesis.sdf 2004/02/17.}
+%%% Defines page shape
+\ifcase\@ptsize% mods for 10 pt
+\ClassWarningNoLine{PhdThesis}
+{You should use 12pt option instead of 10pt}
+\setlength\textheight{53\baselineskip}
+\or% mods for 11 pt
+\ClassWarningNoLine{PhdThesis}
+{You should use 12pt option instead of 11pt}
+\textheight 46\baselineskip
+\or% mods for 12 pt
+\setlength\textheight{42\baselineskip}
+\fi
+\advance\textheight by \topskip
+\setlength\headsep{10mm}
+\setlength\topmargin{3mm}
+\setlength\evensidemargin{3mm}
+\setlength\oddsidemargin{7mm}
+\setlength\textwidth{150mm}
+%%% Provides strings required by maketitlepage (and patched maketitle)
+\def\@phd@address{%
+Dipartimento di Scienze Ambientali, Informatica e Statistica\\
+Università Ca' Foscari Venezia\\
+Via Torino, 155\\
+30172 Venezia Mestre -- Italia \\
+web: {\tt https://www.dais.unive.it}
+}
+\gdef\@phd@university{%
+Università Ca' Foscari Venezia\vskip 0.75em plus 0.25em minus 0.25em
+{\large%
+Dottorato di Ricerca in Informatica, $\@cycle^\circ$ Ciclo}
+\vskip 0.75em plus 0.25em minus 0.25em
+(A.A. \@accyearstart -- \@accyearend)\par
+}
+%%% Redefines maketitle
+\RequirePackage{graphicx}
+\renewcommand*{\maketitle}{
+\begin{titlepage}%
+\newsavebox{\titlebox}
+\begin{lrbox}{\titlebox}
+\begin{minipage}[b][.8\paperheight][s]{.75\paperwidth}
+\let\footnotesize\small
+\let\footnoterule\relax
+\null%\vfil%
+\begin{center}%
+\textsc{\@phd@university}\par
+\vskip 4em plus .25em minus .25em
+%{\large\textsc{\thesisname\ifx\@phd@number\@empty\else: \@phd@number\fi}\par}
+{\LARGE\bfseries\@title\par}\vskip4em%
+{\large\textsc{Settore scientifico disciplinare di afferenza: \@sector}\par}
+\vskip 4em
+{\large\begin{tabular}[t]{c}%
+{\large\textsc{Tesi di dottorato di \@author}\par}\\
+{\large\textsc{Matr. \@matriculation}\par}
+\end{tabular}}
+\par
+%\vskip2em plus.25em minus.25em
+\vskip6em\vfill
+% supervisors
+\def\and{\end{tabular}\\[5em]\mbox{}\end{center}\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}\begin{center}
+\begin{tabular}[t]{c}\textsc{\supervisorname}\\[1ex]%
+}
+\ifx\@phd@supervisor\@empty\else
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\begin{tabular}[t]{c}%
+\textsc{Tutore del dottorando}\\[1ex]
+\@phd@supervisor
+\end{tabular}\\[5em]\mbox{}
+\end{center}
+\end{minipage}
+\fi%
+\par
+%pdhcoordinator
+\def\and{\end{tabular}\\[5em]\mbox{}\end{center}\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}\begin{center}
+\begin{tabular}[t]{c}\textsc{\phdcoordname}\\[1ex]%
+}
+\ifx\@phd@phdcoord\@empty\else
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\begin{tabular}[t]{c}%
+\textsc{Coordinatore del dottorato}\\[1ex]
+\@phd@phdcoord
+\end{tabular}\\[5em]\mbox{}
+\end{center}
+\end{minipage}
+\fi%
+\par
+% referees
+\def\and{\end{tabular}\\[5em]\mbox{}\end{center}\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}\begin{center}
+\begin{tabular}[t]{c}\textsc{\refereename}\\[1ex]%
+}
+\ifx\@phd@referee\@empty\else
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\begin{tabular}[t]{c}%
+\textsc{\refereename}\\[1ex]
+\@phd@referee
+\end{tabular}\\[5em]\mbox{}
+\end{center}
+\end{minipage}
+\fi%
+\par
+% chair
+\def\and{\end{tabular}\\[5em]\mbox{}\end{center}\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}\begin{center}
+\begin{tabular}[t]{c}\textsc{\chairname}\\[1ex]%
+}
+\ifx\@phd@chair\@empty\else
+\begin{minipage}[t]{0.45\textwidth}
+\begin{center}
+\begin{tabular}[t]{c}%
+\textsc{\chairname}\\[1ex]
+\@phd@chair
+\end{tabular}\\[5em]\mbox{}
+\end{center}
+\end{minipage}
+\fi%
+\vskip1em\vfill
+{\large\ifx\undefined\datename\else\datename~\fi\@date\par}% Set date in \large size.
+\end{center}%\par
+\ifx\@thanks\@empty\else
+\par\vfil%
+\@thanks
+\fi%
+\null
+\end{minipage}
+\end{lrbox}
+\newsavebox{\pollobox}
+\begin{lrbox}{\pollobox}
+\begin{minipage}[b][.8\paperheight][s]{.75\paperwidth}
+\null\vfill%\par\noindent
+\includegraphics[width=.75\paperwidth]{VeneziaLogo}%
+\vfill\null
+\end{minipage}
+\end{lrbox}
+\enlargethispage*{3cm}
+\vspace*{-\topmargin}\vspace*{-\headheight}\vspace*{-1cm}
+\hspace*{-2cm}%\null\hspace*{-\oddsidemargin} \hspace*{-.35in}
+\hfill\usebox{\pollobox}\hfill\par
+\vspace*{-.8\paperheight}\vspace*{-\baselineskip}%\vspace*{-\topmargin}\vspace*{-\headheight}
+\hspace*{-2cm}%
+\hfill\usebox{\titlebox}\hfill\par
+\end{titlepage}%
+\thispagestyle{empty}
+\setcounter{footnote}{0}%
+\let\thanks\relax\let\maketitle\relax%
+% second page
+% copyright (or copyleft)
+\ifx\@phd@rights\@empty\else
+\vskip 4em
+\par\vfil\noindent
+\@phd@rights\\
+\hrule
+\fi%
+% address
+\vfill
+\def\and{\\}
+\ifx\@phd@homepage\@empty\else
+\noindent
+\homepagename:
+\begin{tabular}[t]{l}
+ \@phd@homepage%
+\end{tabular}\\[2em]
+\fi
+\ifx\@phd@email\@empty\else
+\noindent
+\emailname:
+\begin{tabular}[t]{l}
+ \@phd@email%
+\end{tabular}\\[2em]
+\fi
+\ifx\@phd@phone\@empty\else
+\noindent
+\phonename:
+\begin{tabular}[t]{l}
+ \@phd@phone%
+\end{tabular}\\[2em]
+\vfil
+\fi%
+\ifx\@phd@address\@empty\else
+% \par
+\noindent
+\addressname:\\[1em]
+\@phd@address
+\fi%
+\vfill
+\vfill
+}% end \maketitle
+%%% Adds captions used by maketitle
+\addto\phd@captions@italian{%
+\def\addressname{Indirizzo dell'autore}%
+\def\emailname{Posta elettronica dell'autore}%
+\def\homepagename{Pagina Web dell'autore}%
+\def\phonename{Numero telefonico dell'autore}%
+\def\thesisname{Tesi di Dottorato}%
+}
+\addto\phd@captions@american{%
+\def\addressname{Author's address}%
+\def\emailname{Author's e-mail}%
+\def\homepagename{Author's Web Page}%
+\def\phonename{Author's telephone number}%
+\def\thesisname{Ph.D.~Thesis}%
+}
+\let\phd@captions@english{\phd@captions@american}
+\let\phd@captions@british{\phd@captions@american}
+\endinput
+%%
+%% End of file `VeneziaPhdThesis.sdf'.

@@ -1,0 +1,18 @@
+\begin{table*}[htp]
+    \centering
+    \begin{tabular}{l|c|c||c|c}
+        \toprule
+        & \multicolumn{2}{c||}{VAE} & \multicolumn{2}{c}{LVAE} \\
+        \midrule
+        & AUC-ROC & AP & AUC-ROC & AP \\
+        \midrule
+        ENZYMES & 69.72 ± 0.523 & 71.83 ± 0.517 & 81.59 ± 0.668 & 82.25 ± 0.693 \\
+        IMDB-Multi & 50.31 ± 0.092 & 55.19 ± 0.109 & 57.93 ± 2.593 & 67.05 ± 0.831 \\
+        MSRC\_21 & 85.44 ± 0.338 & 87.72 ± 0.226 & 85.65 ± 0.380 & 88.19 ± 0.300 \\
+        MUTAG & 73.01 ± 0.415 & 71.76 ± 0.465 & 85.99 ± 1.694 & 85.55 ± 1.765 \\
+        NCI1 & 65.02 ± 0.352 & 68.27 ± 0.417 & 65.46 ± 0.262 & 68.63 ± 0.322 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Results on the 5 datasets considered for the variational autoencoder methods. We report the AUC-ROC curve for VAE and our method, LVAE, with the standard errors.}
+    \label{tab:lvae:results}
+\end{table*}

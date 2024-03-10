@@ -1,0 +1,370 @@
+\documentclass[12pt,british,VeneziaPhdThesis]{PhdThesis}[2004/02/17]%,draft
+
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+\usepackage{babel}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+ 
+\usepackage{amsthm}
+\usepackage{amsxtra}
+ 
+\usepackage{babel}
+\usepackage{bm,overpic}
+\usepackage{booktabs}
+ 
+\usepackage{braket}
+ 
+\usepackage{cite}
+\usepackage{color}
+ 
+\usepackage{comment}
+\usepackage{epigraph}
+\usepackage{epstopdf}
+\usepackage{enumitem}
+\usepackage[mathscr]{eucal}
+
+\usepackage{float}
+ 
+\usepackage{fourier}
+\usepackage{graphicx} 
+\usepackage{subcaption}
+ 
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stor
+
+\usepackage{epsfig}
+
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{mathrsfs}
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
+\renewcommand\cellset{\renewcommand\arraystretch{0}%
+\setlength\extrarowheight{0pt}}
+\usepackage{physics}
+
+%\usepackage{pdfpages}
+\usepackage{multibib}
+%\newcites{pri}{Bibliography}
+\newcites{sec}{Published Papers}
+ 
+
+\usepackage{pdfpages}
+
+\usepackage{placeins}
+\usepackage{pseudocode}
+
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{times}
+%\usepackage{todo}
+\usepackage{url}
+
+% for frontespizio
+\usepackage{eso-pic}
+ 
+
+
+
+%\usepackage[cal=lucida]{mathalfa}
+%\usepackage{CJKutf8}
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+
+%\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+
+\usetikzlibrary{arrows,shadows}
+
+
+% here more packages
+
+%this only if you like to use some of its features (like smartrefs)
+% \usepackage{theorems}[2003/12/05]
+
+% consider to use hyperref
+\usepackage[bookmarks=true,bookmarksopen=true,pdfhighlight=/I,pdfpagemode=UseOutlines,linktocpage,hidelinks]{hyperref}%if you use pdflatex
+% \usepackage[hypertex, colorlinks=true, backref]{hyperref}%if you use latex
+\usepackage{url}
+\usepackage{caption}
+
+% learn to use includes! 
+% \includeonly{introduction,preliminaries}
+
+
+%\usepackage[refpages]{gloss} %per compilare bibtex phdthesis.gls.aux
+ 
+\def\R{ \hbox{I\kern-.1667em R}}
+\def\Tr{\mathrm{Tr}}
+\def\tr{\mathrm{Tr}}
+%\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{^T}
+\newcommand{\argmax}{\operatornamewithlimits{\arg\,\max}}
+%\newcommand{\bm}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand{\dom}{\mathrm{dom}}
+%\newcommand{\dquote}[1]{``#1''}
+%\newcommand{\e}{\vct{1}}
+%\newcommand{\gvct}[1]{\boldsymbol #1}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\hide}[1]{}
+\newcommand{\mat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\todo}[1]{\textbf{#1}}
+\newcommand{\vct}[1]{\mathbf #1}
+%\newcommand{\vct}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\x}{\vct{x}}
+\newcommand{\y}{\vct{y}}
+\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial  #2}}
+\newcommand{\inlineeqnum}{\refstepcounter{equation}~~\mbox{(\theequation)}}
+\newcommand{\ith}[1]{$#1$-th}
+ 
+
+
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+%%\newtheoremstyle{example}{.6cm}{.6cm}%
+%%     {}%         Body font
+%%     {}%         Indent amount (empty = no indent, \parindent = para indent)
+%%     {\bfseries}% Thm head font
+%%     {}%        Punctuation after thm head
+%%     {\newline}%     Space after thm head (\newline = linebreak)
+%%     %{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%         Thm head spec
+%%     {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%         Thm head spec
+%%
+%%\theoremstyle{example}
+%%\newtheorem{example}{Example}[section]
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.9}
+
+\newcommand{\etal}{\textit{et al}. }
+\newcommand{\ie}{\textit{i}.\textit{e}., }
+\newcommand{\eg}{\textit{e}.\textit{g}., }
+\newcommand{\etc}{\textit{etc}. }
+\newcommand{\wrt}{with respect to }
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}
+
+
+% Import pxtx package calling with \mtxcal
+% https://tex.stackexchange.com/a/500774/216100
+\DeclareFontFamily{U}{txcal}{\skewchar \font =45}
+\DeclareFontShape{U}{txcal}{m}{n}{
+<-> txr-cal}{}
+\DeclareFontShape{U}{txcal}{b}{n}{
+<-> txb-cal}{}
+\DeclareMathAlphabet{\mtxcal}{U}{txcal}{m}{n}
+\SetMathAlphabet{\mtxcal}{bold}{U}{txcal}{b}{n}
+\DeclareMathAlphabet{\mtxbcal} {U}{txcal}{b}{n}
+
+\newcommand{\Graph}{\mtxcal{G}}
+\usepackage{chapters/utility/results/lvae}
+ 
+
+%\makegloss  
+
+\author{Mark Lion}
+\cycle{3X}
+\accyearstart{2020/2021}
+\accyearend{2022/2023}
+\matriculation{8XXXXX}
+\sector{INF/01}
+\email{mark.lion@unive.it}
+% \homepage{\url{http://www.dais.unive.it/~minello}}
+
+\supervisor{Prof. God}
+\phdcoord{Prof. God supreme}
+\title{Awesome research}
+\date{September, 202X}
+\phdnumber{}
+
+\makeindex
+
+\begin{document}
+\renewcommand{\chapterautorefname}{Chapter}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Section}
+
+\includepdf{frontespizio_tesi_dottorati.pdf}
+
+ 
+
+\pagestyle{empty}
+\maketitle
+\begin{abstract}
+
+ABSTRACT 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et rhoncus arcu, at finibus augue. Curabitur sollicitudin metus ut enim eleifend dictum. Nunc ultricies varius eros nec bibendum. Duis et aliquam nulla. Vivamus consequat ligula et augue vehicula, ut ultrices ex porttitor. Donec diam justo, vehicula faucibus erat et, sodales vehicula dolor. Curabitur at aliquet lectus. Fusce facilisis sollicitudin nisi vel fermentum.
+
+Curabitur nec vestibulum lorem. Sed vehicula sapien fermentum, interdum ante nec, facilisis est. Morbi aliquam tempus lectus. Curabitur ac rhoncus augue, eget scelerisque nisl. Quisque pulvinar gravida suscipit. Sed enim quam, lacinia eget nisl et, iaculis feugiat ex. Donec mi nulla, condimentum nec turpis sed, mattis pharetra nibh. Maecenas mattis, erat a volutpat blandit, ante elit vulputate lectus, eu cursus dui quam in turpis. Aliquam lacinia, quam id cursus condimentum, nisl lorem porttitor urna, non dapibus magna quam eget felis.
+ 
+\end{abstract}
+\label{abstract}
+
+%\chapter*{Sommario}
+%
+%Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\frontmatter
+\partstyle{serifbig}
+\chaptertitlestyle{serifbig}
+\pagestyle{serif}
+\tableofcontents
+\listoffigures
+
+ 
+
+
+%
+%\nocitesec{*}
+%\bibliographystylesec{acm}
+%\bibliographysec{sec_bib}
+
+%\printgloss{notation}  %RIMUOVERE PER GLOSSARIO
+%\nocitemypub{*}
+%\bibliographystylemypub{acm} %
+%\bibliographymypub{sec_bib.bib}
+
+
+
+\newenvironment{myindentpar}[1]%
+ {\begin{list}{}%
+     {\setlength{\leftmargin}{#1}}%
+     \item[]%
+ }
+ {\end{list}}
+
+
+\input{chapters/preface}
+
+
+\nocitesec{*}
+\bibliographystylesec{acm}
+\bibliographysec{sec_bib}
+%%\addcontentsline{toc}{chapter}{Bibliografia}
+
+\hide{
+\chapter*{Notations
+\chaptermark{Notations}\sectionmark{Notations}}
+\setcounter{section}{0}%
+\setcounter{subsection}{0}%
+\addcontentsline{toc}{chapter}
+{\protect\numberline{}Notations}%
+\thispagestyle{empty}
+
+%\begin{tabular*}{\textwidth}{ll@{\extracolsep{\fill}}r}
+%\setlength\LTleft{0pt}
+%\setlength\LTright{0pt}
+\begin{longtable}{ll@{\extracolsep{\fill}}r}
+\multicolumn{3}{l}{\bf General}\\
+\hline
+$\mathbb R$& set of reals&\\
+$\mathbb R_+$& set of nonnegative reals&\\
+$|S|$&cardinality of the set $S$&\\
+$\vct x$, $\vct y$, $\vct z$,\dots&column vectors in $\mathbb R^n$&\\
+$x_i$&$i$th element of vector $\vct x$&\\
+$\vct 0$&column vector of all 0s&\\
+$\vct e$&column vector of all 1s&\\
+$\vct e^i$&$i$th column of the identity matrix&\\
+$A=(a_{ij})$&matrix in $\mathbb R^{n\times n}$ with $(i,j)$th element $a_{ij}$&\\
+$I$&identity matrix&\\
+$det(A)$&determinant of matrix $A$&\\
+$\binom{V}{k}$&set of $k$-subsets of $V$&\\
+&&\\
+\multicolumn{3}{l}{\bf Game-theory}\\\hline
+$S=\{1,\dots,n\}$&set of $n$ strategies usually denoted with $S$\\
+$\Delta^n$&standard simplex in $n$ dimensions&\\
+$\pi(\vct y|\vct x)$&$\vct y^TA\vct x$, average payoff of $\vct y$ against $\vct x$\\
+$\pi(\vct x)$&$\vct x^TA\vct x$, average population payoff\\
+$\sigma(\vct x)$&support of vector $\vct x$\\
+$\beta(\vct x)$&set of best replies to strategy $\vct x$\\
+$\vct x^{(t)}$&population state at time $t$\\
+$\dot{\vct x}^{(t)}$&time derivative of the population state at time $t$
+\end{longtable}
+}
+
+%==============================================================
+%
+% 
+%\chapter*{Published Papers}
+%
+%
+%
+%\subsection*{\textit{Conference Papers}}
+%
+%\nocite{gasparetto2015non,gasparetto2015nonshape,minello2016quantum,minello2016thermodynamic,lockhart2016edge,2018arXiv180907533M}
+%\bibliographystyle{acm}
+%\bibliography{Thermo_paper_bib}
+%
+%%\begin{description}[font=\normalfont]
+%%\item \textsc{Gasparetto, A and Minello, G and Torsello, A}:
+%%\textbf{Non-parametric spectral model for shape retrieval}.
+%%-- \textit{3D Vision (3DV), 2015 International Conference on},  pages=344--352, 2015 
+%%\end{description}
+%
+%\subsection*{\textit{Journal Articles}}
+%
+%\begin{description}[font=\normalfont]
+%\item[\textsc{[1]}]  {\sc Minello, G., Rossi, L., and Torsello,}
+% On the Von Neumann Entropy of Graphs.
+%-- \textit{Journal for Complex Networks}, (Sept. 2018),  
+%\end{description}
+
+
+  
+%\addcontentsline{toc}{chapter}{Published Papers}
+\mainmatter
+
+\input{chapters/introduction}
+\input{chapters/literature}
+\input{chapters/utility/introduction}
+\input{chapters/conclusion}
+
+% 
+%==============================================================
+
+\backmatter
+
+\bibliography{Thermo_paper_bib}
+\bibliographystyle{acm}
+
+
+\end{document}
